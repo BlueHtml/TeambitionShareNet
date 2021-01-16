@@ -3,13 +3,8 @@
 FROM mcr.microsoft.com/dotnet/sdk:3.1-alpine AS build
 WORKDIR /app
 
-# 安装依赖
-COPY *.sln .
-COPY TeambitionShare.Net/Server/*.csproj ./TeambitionShare.Net/Server/
-RUN dotnet restore
-
 # 将本地代码拷贝到容器内
-COPY TeambitionShare.Net/Server/. ./TeambitionShare.Net/Server/
+COPY . ./
 WORKDIR /app/TeambitionShare.Net/Server
 
 # 构建项目
@@ -22,4 +17,5 @@ WORKDIR /app
 COPY --from=build /app/TeambitionShare.Net/Server/out ./
 
 # 启动服务
+EXPOSE 5000
 ENTRYPOINT ["dotnet", "Server.dll"]
