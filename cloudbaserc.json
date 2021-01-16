@@ -2,14 +2,14 @@
   "version": "2.0",
   "envId": "{{env.ENV_ID}}",
   "framework": {
-    "name": "TeambitionShare-Net",
+    "name": "teambition-share-net",
     "plugins": {
       "server": {
         "use": "@cloudbase/framework-plugin-container",
         "inputs": {
           "cpu": 0.5,
           "mem": 1,
-          "serviceName": "TeambitionShare-Net",
+          "serviceName": "teambition-share-net",
           "servicePath": "/",
           "uploadType": "repository",
           "codeDetail": {
